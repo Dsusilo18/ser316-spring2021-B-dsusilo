@@ -27,7 +27,6 @@ public class BattleScenario {
         // initiate stats for mon1 and mon2
         mon1Stats = new Stats(mon1.name);
         mon2Stats = new Stats(mon2.name);
-        System.out.println("Woooo: " + mon1Stats.health);
 
         System.out.println("\nWelcome everyone to the Mascotmon training arena!");
         System.out.println("It is a " + battleWeather.WEATHER.toString().toLowerCase()

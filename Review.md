@@ -43,7 +43,7 @@ The method doesnt calculate damage correctly, it doesn't calculate type, attack 
 
 7. [ID#:CS 3][Location:Mascotmon.java Line 12-22]
 <Description:>
-Instead of using an if else if and else statments, it should be a switch stament instead. 
+Instead of using an if, else if and else statments, it should be a switch stament instead. 
 [Problem]
 <Category:> Code Smells
 <Severity:> LOW
