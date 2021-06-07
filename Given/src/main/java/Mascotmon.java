@@ -45,7 +45,7 @@ public class Mascotmon {
 
     private void getDescription() {
         Description desc = new Description(name);
-        this.description = desc.description;
+        this.description = desc.getDesc();
     }
 
     /**
