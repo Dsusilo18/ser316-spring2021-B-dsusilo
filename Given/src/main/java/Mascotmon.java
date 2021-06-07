@@ -11,14 +11,19 @@ public class Mascotmon {
 
     public Mascotmon() {
         int rand = ThreadLocalRandom.current().nextInt(0, 4);
-        if (rand == 0) {
-            name = Name.ALBERT;
-        } else if (rand == 1) {
-            name = Name.RALPHIE;
-        } else if (rand == 2) {
-            name = Name.SPARKY;
-        } else {
-            name = Name.BULLY;
+        switch (rand) {
+            case 0:
+                name = Name.ALBERT;
+                break;
+            case 1:
+                name = Name.RALPHIE;
+                break;
+            case 2:
+                name = Name.SPARKY;
+                break;
+            default:
+                name = Name.BULLY;
+                break;
         }
         getType();
         getStats();
