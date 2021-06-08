@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BattleScenario.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Given</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">BattleScenario.java</span></div><h1>BattleScenario.java</h1><pre class="source lang-java linenums">
+public class BattleScenario {
+
+    Mascotmon mon1;
+    Mascotmon mon2;
+    Stats mon1Stats;
+    Stats mon2Stats;
+    Environment battleWeather;
+    Mascotmon winner;
+
+<span class="fc" id="L11">    public BattleScenario(Mascotmon pMon1, Mascotmon pMon2) {</span>
+<span class="fc" id="L12">        setMon1(pMon1);</span>
+<span class="fc" id="L13">        setMon2(pMon2);</span>
+<span class="fc" id="L14">    }</span>
+
+    /**
+     * Sets environment of the battlefield, and sets buff/debuff modifiers for
+     * all Mascotmons on the field. If the Mascotmon's type is buffed by the
+     * environment,they receive a 25% multiplier to their attack and defense
+     * stat. If the Mascotmon's type is debuffed by the environment, they
+     * receive a reduction of 25% to their attack and defense stat.
+     *
+     * @param pWeather is the weather enum to use from Environment class
+     */
+    public void setEnvironment(Environment.Weather pWeather) {
+<span class="fc" id="L26">        battleWeather = new Environment(pWeather);</span>
+<span class="fc" id="L27">    }</span>
+
+    /**
+     * winner is moved to a public class variable so that the method can be
+     * tested.
+     */
+    public void initiateBattle() {
+
+        // initiate stats for mon1 and mon2
+<span class="fc" id="L36">        mon1Stats = new Stats(mon1.name);</span>
+<span class="fc" id="L37">        mon2Stats = new Stats(mon2.name);</span>
+
+<span class="fc" id="L39">        System.out.println(&quot;\nWelcome everyone to the Mascotmon training arena!&quot;);</span>
+<span class="fc" id="L40">        System.out.println(&quot;It is a &quot; + battleWeather.WEATHER.toString().toLowerCase()</span>
+                + &quot; day here at Frank Kush Field&quot;);
+<span class="fc" id="L42">        System.out.println(&quot;Today, on the attacking team we have &quot; + mon1.name + &quot; &quot;</span>
+                + mon1.description);
+<span class="fc" id="L44">        System.out.println(&quot;Their opponent, on the defending team is &quot; + mon2.name + &quot; &quot;</span>
+                + mon2.description);
+<span class="fc" id="L46">        System.out.println(mon2.name + &quot; prepares for the incoming attack&quot;);</span>
+
+<span class="fc" id="L48">        winner = fight();</span>
+<span class="fc" id="L49">        System.out.println(winner.name + &quot; has won with &quot; + winner.stats.health + &quot; health left&quot;);</span>
+<span class="fc" id="L50">    }</span>
+
+    /**
+     * Sample fight scenario of two rounds. Each Mascotmon uses one random
+     * attack per round; this attack multiplier is used to calculate damage
+     * output against opposing mascotmon.
+     */
+    public Mascotmon fight() {
+<span class="fc" id="L58">        int round = 1;</span>
+        double damage1;
+        double damage2;
+
+        Attack attack1;
+        Attack attack2;
+<span class="fc" id="L64">        mon1.stats.health = 0.0;</span>
+<span class="fc" id="L65">        mon2.stats.health = 0.0;</span>
+
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        while (round &lt; 4) {</span>
+            //Mon 1's turn:
+<span class="fc" id="L69">            System.out.println(&quot;\n&quot; + mon1.name + &quot; launches an attack against &quot; </span>
+                    + mon2.name + &quot;!&quot;);
+<span class="fc" id="L71">            attack1 = mon1.attack();</span>
+
+            //Calculate damage:
+<span class="fc" id="L74">            damage1 = calculateDamage(attack1, mon1, mon2);</span>
+<span class="fc" id="L75">            System.out.println(damage1 + &quot; damage dealt&quot;);</span>
+
+            //Adjust mon2's health:
+<span class="fc" id="L78">            mon2.stats.health = mon2.stats.health - damage1;</span>
+<span class="fc" id="L79">            System.out.println(mon2.name + &quot; has &quot; + mon2.stats.health +</span>
+                    &quot; health left&quot;);
+            //Battle terminating condition:
+<span class="fc bfc" id="L82" title="All 2 branches covered.">            if (mon2.stats.health &lt;= 0.0) {</span>
+<span class="fc" id="L83">                System.out.println(mon2.name + &quot; has fainted in round &quot; + round);</span>
+<span class="pc bpc" id="L84" title="1 of 4 branches missed.">                if (round == 2 &amp;&amp; mon1.type.equals(&quot;Water&quot;)) {</span>
+<span class="nc" id="L85">                    return mon1;</span>
+                }
+            }
+
+            //Mon 2's turn:
+<span class="fc" id="L90">            System.out.println(&quot;\n&quot; + mon2.name + &quot; launches an attack against &quot;</span>
+                    + &quot;&quot; + mon1.name + &quot;!&quot;);
+<span class="fc" id="L92">            attack2 = mon2.attack();</span>
+
+            //Calculate damage:
+<span class="fc" id="L95">            damage2 = calculateDamage(attack2, mon2, mon1);</span>
+<span class="fc" id="L96">            System.out.println(damage2 + &quot; damage dealt&quot;);</span>
+
+            //Adjust mon1's health:
+<span class="fc" id="L99">            mon1.stats.health = mon1.stats.health - damage2;</span>
+<span class="fc" id="L100">            System.out.println(mon1.name + &quot; has &quot; + mon1.stats.health + &quot; health left&quot;);</span>
+            //Battle terminating condition:
+<span class="fc bfc" id="L102" title="All 2 branches covered.">            if (mon1.stats.health &lt;= 0.0) {</span>
+<span class="fc" id="L103">                System.out.println(mon1.name + &quot; has fainted in round &quot; + round);</span>
+<span class="pc bpc" id="L104" title="1 of 4 branches missed.">                if (round == 2 &amp;&amp; mon1.equals(equals(&quot;Neutral&quot;))) {</span>
+<span class="nc" id="L105">                    return mon2;</span>
+                }
+            }
+<span class="fc" id="L108">            round++;</span>
+<span class="fc bfc" id="L109" title="All 2 branches covered.">            if (round == 3) {</span>
+<span class="fc" id="L110">                mon1.stats.health = 70;</span>
+<span class="fc" id="L111">                mon2.stats.health = 70;</span>
+            }
+        } //end while
+<span class="pc bpc" id="L114" title="1 of 2 branches missed.">       if (mon1.stats.health &lt;= 0.0){</span>
+<span class="nc" id="L115">           return mon2;</span>
+       } else{
+<span class="fc" id="L117">           return mon1;</span>
+       }
+    }
+
+    public void setMon1(Mascotmon pMon) {
+<span class="fc" id="L122">        mon1 = pMon;</span>
+<span class="fc" id="L123">    }</span>
+
+    public void setMon2(Mascotmon pMon) {
+<span class="fc" id="L126">        mon2 = pMon;</span>
+<span class="fc" id="L127">    }</span>
+
+    /**
+     * TO DO: Implement for Assignment 3 This method implements the calculation
+     * of damage for one specific attack. One monster attacks with the given
+     * damage, the dealt damage is then calculated through totalDamage =
+     * (pAttack.damage * pAttacker.attack * pAttacker.weatherBonus *
+     * pAttacker.typeBonus) - (pDefender.stats.defense * pDefender.weatherBonus
+     * * pDefender.typeBonus)
+     *
+     * Note: totalDamage is rounded to the nearest integer before it is returned
+     * If the initial pAttack.damage is 0, then the damage dealt is 0. If the
+     * totalDamage calculated is negative, the totalDamage dealt should be 1.
+     * Any positive value is the total damage dealt.
+     *
+     * Weather bonus: see the Environment which you can assume is correct. You
+     * do need to check if the weather bonus is applied correctly, since maybe
+     * the method does not use the environment correctly.On attack or defense,
+     * the monster have a buff, debuff or nothing based on the weather. EG. fire
+     * monsters have a stat advantage of +25% in sunny weather while they have a
+     * stat disadvantage of -25% in the rain.
+     *
+     * If the attack chosen, matches the monsters type, the attacker will get an
+     * extra 20% on its attack. Type bonus: Certain monsters have an type bonus
+     * against others (bonuses: Fire against Water: Water gains 25% while Fire
+     * looses 25% Fire against Ground: Fire gains 25% while Ground looses 25%
+     * Ground against Water: Ground gains 25% while Water looses 25% Normal mon:
+     * never gain any type bonus and are weaker during droughts. These bonuses
+     * do not stack up, they are just applied for every attack.
+     *
+     *
+     *
+     * @param pAttack is the attack value given to the method where that attack
+     * value is based on the monsters damage value
+     * @param pAttacker the attacking monster
+     * @param pDefender the defending monster (the defending monster will never
+     * get damage) to calculate damage output.
+     * @return total damage output
+     */
+    public double calculateDamage(Attack pAttack, Mascotmon pAttacker, Mascotmon pDefender) {
+//        return Math.round(pAttack.damage * 0.2);
+<span class="fc" id="L168">        double AttackBonus = 1;</span>
+<span class="fc" id="L169">        double totalDamage = 0;</span>
+<span class="fc bfc" id="L170" title="All 2 branches covered.">        if (pAttacker.type.equals(battleWeather.buffedType)) {</span>
+<span class="fc" id="L171">            pAttacker.weatherBonus = battleWeather.buffModifier;</span>
+<span class="fc bfc" id="L172" title="All 2 branches covered.">        } else if (pAttacker.type.equals(battleWeather.DebuffedType)) {</span>
+<span class="fc" id="L173">            pAttacker.weatherBonus = battleWeather.debuffModifier;</span>
+        }
+<span class="fc bfc" id="L175" title="All 2 branches covered.">        if (pDefender.type.equals(battleWeather.buffedType)) {</span>
+<span class="fc" id="L176">            pDefender.weatherBonus = battleWeather.buffModifier;</span>
+<span class="fc bfc" id="L177" title="All 2 branches covered.">        } else if (pDefender.type.equals(battleWeather.DebuffedType)) {</span>
+<span class="fc" id="L178">            pDefender.weatherBonus = battleWeather.debuffModifier;</span>
+        }
+<span class="fc bfc" id="L180" title="All 2 branches covered.">        if (pAttack.type.equals(pAttacker.type)) {</span>
+<span class="fc" id="L181">            AttackBonus = 1.20;</span>
+        }
+
+<span class="fc bfc" id="L184" title="All 4 branches covered.">        switch (pAttacker.type) {</span>
+            case &quot;Fire&quot;:
+<span class="fc bfc" id="L186" title="All 2 branches covered.">                if (pDefender.type.equals(&quot;Ground&quot;)) {</span>
+<span class="fc" id="L187">                    pAttacker.typeBonus = 1.25;</span>
+<span class="fc" id="L188">                    pDefender.typeBonus = 0.75;</span>
+<span class="fc bfc" id="L189" title="All 2 branches covered.">                } else if (pDefender.type.equals(&quot;Water&quot;)) {</span>
+<span class="fc" id="L190">                    pAttacker.typeBonus = 0.75;</span>
+<span class="fc" id="L191">                    pDefender.typeBonus = 1.25;</span>
+                }
+                break;
+            case &quot;Water&quot;:
+<span class="fc bfc" id="L195" title="All 2 branches covered.">                if (pDefender.type.equals(&quot;Fire&quot;)) {</span>
+<span class="fc" id="L196">                    pAttacker.typeBonus = 1.25;</span>
+<span class="fc" id="L197">                    pDefender.typeBonus = 0.75;</span>
+<span class="fc bfc" id="L198" title="All 2 branches covered.">                } else if (pDefender.type.equals(&quot;Ground&quot;)) {</span>
+<span class="fc" id="L199">                    pAttacker.typeBonus = 0.75;</span>
+<span class="fc" id="L200">                    pDefender.typeBonus = 1.25;</span>
+                }
+                break;
+            case &quot;Ground&quot;:
+<span class="fc bfc" id="L204" title="All 2 branches covered.">                if (pDefender.type.equals(&quot;Water&quot;)) {</span>
+<span class="fc" id="L205">                    pAttacker.typeBonus = 1.25;</span>
+<span class="fc" id="L206">                    pDefender.typeBonus = 0.75;</span>
+<span class="fc bfc" id="L207" title="All 2 branches covered.">                } else if (pDefender.type.equals(&quot;Fire&quot;)) {</span>
+<span class="fc" id="L208">                    pAttacker.typeBonus = 0.75;</span>
+<span class="fc" id="L209">                    pDefender.typeBonus = 1.25;</span>
+                }
+                break;
+        }
+<span class="fc" id="L213">        totalDamage = (pAttack.damage * AttackBonus * pAttacker.weatherBonus</span>
+                * pAttacker.typeBonus) - (pDefender.stats.defense
+                * pDefender.weatherBonus * pDefender.typeBonus);
+
+<span class="fc bfc" id="L217" title="All 2 branches covered.">        if (totalDamage &lt; 0) {</span>
+<span class="fc" id="L218">            return 1;</span>
+<span class="fc bfc" id="L219" title="All 2 branches covered.">        } else if (totalDamage == 0) {</span>
+<span class="fc" id="L220">            return 0;</span>
+        } else {
+<span class="fc" id="L222">            return Math.round(totalDamage);</span>
+        }
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span></div></body></html>

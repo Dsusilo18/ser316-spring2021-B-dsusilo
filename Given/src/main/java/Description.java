@@ -1,6 +1,6 @@
 public class Description {
 
-    public String description;
+    private String description;
 
     public Description() {
         description = "New mascot";
@@ -18,5 +18,9 @@ public class Description {
             description = "The Bull Dog";
         else
             description = "New mascot";
+    }
+    
+    public String getDesc(){
+        return description;
     }
 }
