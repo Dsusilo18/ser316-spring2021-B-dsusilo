@@ -1,3 +1,4 @@
+
 public class Stats {
 
     double attack;

@@ -66,7 +66,7 @@ public class BattleScenario {
 
         while (round < 4) {
             //Mon 1's turn:
-            System.out.println("\n" + mon1.name + " launches an attack against " 
+            System.out.println("\n" + mon1.name + " launches an attack against "
                     + mon2.name + "!");
             attack1 = mon1.attack();
 
@@ -76,8 +76,8 @@ public class BattleScenario {
 
             //Adjust mon2's health:
             mon2.stats.health = mon2.stats.health - damage1;
-            System.out.println(mon2.name + " has " + mon2.stats.health +
-                    " health left");
+            System.out.println(mon2.name + " has " + mon2.stats.health
+                    + " health left");
             //Battle terminating condition:
             if (mon2.stats.health <= 0.0) {
                 System.out.println(mon2.name + " has fainted in round " + round);
@@ -111,11 +111,11 @@ public class BattleScenario {
                 mon2.stats.health = 70;
             }
         } //end while
-       if (mon1.stats.health <= 0.0){
-           return mon2;
-       } else{
-           return mon1;
-       }
+        if (mon1.stats.health <= 0.0) {
+            return mon2;
+        } else {
+            return mon1;
+        }
     }
 
     public void setMon1(Mascotmon pMon) {

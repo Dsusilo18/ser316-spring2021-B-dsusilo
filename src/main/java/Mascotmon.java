@@ -1,11 +1,13 @@
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Mascotmon {
+
     String description;
     public String type;
     public Name name;
     public Stats stats;
-    public double weatherBonus = 1.0; 
+    public double weatherBonus = 1.0;
     public double typeBonus = 1.0;
     public int buf_counter = 0;
 
@@ -44,8 +46,7 @@ public class Mascotmon {
 
     private void getStats() {
         stats = new Stats(name);
-        
-        
+
     }
 
     private void getDescription() {
@@ -54,11 +55,12 @@ public class Mascotmon {
     }
 
     /**
-     * Method randomly determines an attack to use based on the defending Mascotmon and
-     * returns the base damage of the attack selected. The self-buff (attackNumber 0) can only be
-     * used 3 times during a battle.
-     * @return attack damage
-     * You can assume that this method uses the values it is supposed to use and is correct. 
+     * Method randomly determines an attack to use based on the defending
+     * Mascotmon and returns the base damage of the attack selected. The
+     * self-buff (attackNumber 0) can only be used 3 times during a battle.
+     *
+     * @return attack damage You can assume that this method uses the values it
+     * is supposed to use and is correct.
      */
     public Attack attack() {
         double attack_Damage = 0;
@@ -69,13 +71,12 @@ public class Mascotmon {
             if (attackNumber == 0 && buf_counter <= 2) {
                 buf_counter++;
                 break;
-            }
-            else if (attackNumber != 0){
+            } else if (attackNumber != 0) {
                 break;
             }
         }
 
-        String _desc= "";
+        String _desc = "";
         Attack attack = null;
 
         switch (name) {
@@ -145,7 +146,7 @@ public class Mascotmon {
                     attack = new Attack(stats.attack, "Ground");
                 }
         }
-            
+
         System.out.println(name.toString().toLowerCase() + _desc);
         return attack;
     }

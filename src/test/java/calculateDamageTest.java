@@ -20,10 +20,10 @@ public class calculateDamageTest {
     public void setUp() throws Exception {
     }
 
-
     @After
     public void cleanUp() throws Exception {
     }
+
     // sample test
     /**
      * Battle between Bully and Ralphie on a sunny day with ground attack
@@ -31,7 +31,7 @@ public class calculateDamageTest {
      * @throws Exception
      */
     @Test
-    public void BvsRSunnyGround() throws Exception{
+    public void BvsRSunnyGround() throws Exception {
 
         Mascotmon attacker1 = new Mascotmon(Mascotmon.Name.BULLY);
         Mascotmon defender1 = new Mascotmon(Mascotmon.Name.RALPHIE);
@@ -56,7 +56,7 @@ public class calculateDamageTest {
      * @throws Exception
      */
     @Test
-    public void RvsBSunnyGround() throws Exception{
+    public void RvsBSunnyGround() throws Exception {
 
         Mascotmon attacker1 = new Mascotmon(Mascotmon.Name.RALPHIE);
         Mascotmon defender1 = new Mascotmon(Mascotmon.Name.BULLY);
@@ -243,7 +243,7 @@ public class calculateDamageTest {
 
         damage = CreateTest(defender1, attacker1, 70, Environment.Weather.neutral);
         System.out.println("         Damage dealt: " + damage);
-       Assert.assertEquals(damage, 30, 0.2);
+        Assert.assertEquals(damage, 30, 0.2);
     }
 
     @Test

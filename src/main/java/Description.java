@@ -1,3 +1,4 @@
+
 public class Description {
 
     private String description;
@@ -8,19 +9,20 @@ public class Description {
 
     public Description(Mascotmon.Name name) {
         String n = name.toString();
-        if (n.equals("ALBERT"))
+        if (n.equals("ALBERT")) {
             description = "The Alligator";
-        else if (n.equals("RALPHIE"))
+        } else if (n.equals("RALPHIE")) {
             description = "The Buffalo";
-        else if (n.equals("SPARKY"))
+        } else if (n.equals("SPARKY")) {
             description = "The Sun Devil";
-        else if (n.equals("BULLY"))
+        } else if (n.equals("BULLY")) {
             description = "The Bull Dog";
-        else
+        } else {
             description = "New mascot";
+        }
     }
-    
-    public String getDesc(){
+
+    public String getDesc() {
         return description;
     }
 }
