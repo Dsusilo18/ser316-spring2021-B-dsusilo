@@ -41,36 +41,36 @@
          Damage dealt: 56.0
 
 *RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
+7ralphie uses Iron Hide, increasing defense stat by 10%
 1.0 damage dealt
 BULLY has -1.0 health left
 BULLY has fainted in round 1
 
 *BULLY launches an attack against RALPHIE!
-bully uses Splash
+bully uses Ground Pound
 1.0 damage dealt
 RALPHIE has -1.0 health left
 RALPHIE has fainted in round 1
 
 *RALPHIE launches an attack against BULLY!
-ralphie uses Ground Stomp
+ralphie uses Headbutt
 1.0 damage dealt
 BULLY has -2.0 health left
 BULLY has fainted in round 2
 
 *BULLY launches an attack against RALPHIE!
-bully uses Body Slam
+bully uses Ground Pound
 1.0 damage dealt
 RALPHIE has -2.0 health left
 RALPHIE has fainted in round 2
 
 *RALPHIE launches an attack against BULLY!
-ralphie uses Ground Stomp
+ralphie uses Headbutt
 1.0 damage dealt
 BULLY has 69.0 health left
 
 *BULLY launches an attack against RALPHIE!
-bully uses Body Slam
+bully uses Ground Pound
 1.0 damage dealt
 RALPHIE has 69.0 health left
 
@@ -81,28 +81,27 @@
 RALPHIE has fainted in round 1
 
 +RALPHIE launches an attack against SPARKY!
-ralphie uses Ground Stomp
+7ralphie uses Iron Hide, increasing defense stat by 10%
 1.0 damage dealt
 SPARKY has -1.0 health left
 SPARKY has fainted in round 1
 
 +SPARKY launches an attack against RALPHIE!
-Attack value: 70.0
-sparky uses Quick Attack
-39.0 damage dealt
-RALPHIE has -95.0 health left
+sparky uses Earthquake
+34.0 damage dealt
+RALPHIE has -90.0 health left
 RALPHIE has fainted in round 2
 
 +RALPHIE launches an attack against SPARKY!
-ralphie uses Headbutt
+7ralphie uses Iron Hide, increasing defense stat by 10%
 1.0 damage dealt
 SPARKY has -2.0 health left
 SPARKY has fainted in round 2
 
 +SPARKY launches an attack against RALPHIE!
-sparky uses Inferno
-56.0 damage dealt
-RALPHIE has 14.0 health left
+sparky uses Earthquake
+29.0 damage dealt
+RALPHIE has 41.0 health left
 
 +RALPHIE launches an attack against SPARKY!
 ralphie uses Headbutt
@@ -116,7 +115,7 @@
 )RALPHIE prepares for the incoming attack
 
 *BULLY launches an attack against RALPHIE!
-bully uses Body Slam
+bully uses Ground Pound
 1.0 damage dealt
 RALPHIE has -1.0 health left
 RALPHIE has fainted in round 1
@@ -134,24 +133,24 @@
 RALPHIE has fainted in round 2
 
 *RALPHIE launches an attack against BULLY!
-ralphie uses Headbutt
+7ralphie uses Iron Hide, increasing defense stat by 10%
 1.0 damage dealt
 BULLY has -2.0 health left
 BULLY has fainted in round 2
 
 *BULLY launches an attack against RALPHIE!
-bully uses Splash
+0bully uses Sleep, increasing health stat by 10%
 1.0 damage dealt
 RALPHIE has 69.0 health left
 
 *RALPHIE launches an attack against BULLY!
-7ralphie uses Iron Hide, increasing defense stat by 10%
+ralphie uses Ground Stomp
 1.0 damage dealt
-BULLY has 69.0 health left
-$BULLY has won with 69.0 health left
+BULLY has 76.0 health left
+$BULLY has won with 76.0 health left
 
 *BULLY launches an attack against RALPHIE!
-bully uses Ground Pound
+bully uses Splash
 1.0 damage dealt
 RALPHIE has -1.0 health left
 RALPHIE has fainted in round 1
@@ -163,23 +162,23 @@
 BULLY has fainted in round 1
 
 *BULLY launches an attack against RALPHIE!
-bully uses Ground Pound
+bully uses Splash
 1.0 damage dealt
 RALPHIE has -2.0 health left
 RALPHIE has fainted in round 2
 
 *RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
+7ralphie uses Iron Hide, increasing defense stat by 10%
 1.0 damage dealt
 BULLY has -2.0 health left
 BULLY has fainted in round 2
 
 *BULLY launches an attack against RALPHIE!
-bully uses Splash
+0bully uses Sleep, increasing health stat by 10%
 1.0 damage dealt
 RALPHIE has 69.0 health left
 
 *RALPHIE launches an attack against BULLY!
-ralphie uses Headbutt
+ralphie uses Ground Stomp
 1.0 damage dealt
-BULLY has 69.0 health left
+BULLY has 76.0 health left
