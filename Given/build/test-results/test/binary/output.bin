@@ -1,391 +1,0 @@
-
-*BULLY launches an attack against RALPHIE!
-bully uses Ground Pound
-8.0 damage dealt
-RALPHIE has 97.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Ground Stomp
-6.0 damage dealt
-BULLY has 104.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Splash
-8.0 damage dealt
-RALPHIE has 89.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Ground Stomp
-6.0 damage dealt
-BULLY has 98.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Ground Pound
-8.0 damage dealt
-RALPHIE has 81.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Ground Stomp
-6.0 damage dealt
-BULLY has 92.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Ground Pound
-8.0 damage dealt
-RALPHIE has 73.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
-6.0 damage dealt
-BULLY has 86.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Body Slam
-8.0 damage dealt
-RALPHIE has 65.0 health left
-
-*RALPHIE launches an attack against BULLY!
-7ralphie uses Iron Hide, increasing defense stat by 10%
-0.0 damage dealt
-BULLY has 86.0 health left
-
-*BULLY launches an attack against RALPHIE!
-0bully uses Sleep, increasing health stat by 10%
-0.0 damage dealt
-RALPHIE has 65.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
-6.0 damage dealt
-BULLY has 89.0 health left
-
-*BULLY launches an attack against RALPHIE!
-0bully uses Sleep, increasing health stat by 10%
-0.0 damage dealt
-RALPHIE has 65.0 health left
-
-*RALPHIE launches an attack against BULLY!
-7ralphie uses Iron Hide, increasing defense stat by 10%
-0.0 damage dealt
-BULLY has 98.0 health left
-
-*BULLY launches an attack against RALPHIE!
-0bully uses Sleep, increasing health stat by 10%
-0.0 damage dealt
-RALPHIE has 65.0 health left
-
-*RALPHIE launches an attack against BULLY!
-7ralphie uses Iron Hide, increasing defense stat by 10%
-0.0 damage dealt
-BULLY has 108.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Body Slam
-8.0 damage dealt
-RALPHIE has 57.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
-6.0 damage dealt
-BULLY has 102.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Splash
-8.0 damage dealt
-RALPHIE has 49.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Headbutt
-6.0 damage dealt
-BULLY has 96.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Splash
-8.0 damage dealt
-RALPHIE has 41.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Ground Stomp
-6.0 damage dealt
-BULLY has 90.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Body Slam
-8.0 damage dealt
-RALPHIE has 33.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
-6.0 damage dealt
-BULLY has 84.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Splash
-8.0 damage dealt
-RALPHIE has 25.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Ground Stomp
-6.0 damage dealt
-BULLY has 78.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Body Slam
-8.0 damage dealt
-RALPHIE has 17.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
-6.0 damage dealt
-BULLY has 72.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Splash
-8.0 damage dealt
-RALPHIE has 9.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
-6.0 damage dealt
-BULLY has 66.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Splash
-8.0 damage dealt
-RALPHIE has 1.0 health left
-
-*RALPHIE launches an attack against BULLY!
-ralphie uses Flaming Horn
-6.0 damage dealt
-BULLY has 60.0 health left
-
-*BULLY launches an attack against RALPHIE!
-bully uses Body Slam
-8.0 damage dealt
-RALPHIE has -7.0 health left
- RALPHIE has fainted in round 17
-Type Test Case 1
-,public BattleScenario1(Mascotmon,Mascotmon)
-         Damage dealt: 0.0
-,public BattleScenario1(Mascotmon,Mascotmon)
-         Damage dealt: -27.0
-Type Test Case 2
-,public BattleScenario1(Mascotmon,Mascotmon)
-         Damage dealt: -25.0
-Type Test Case 3
-,public BattleScenario1(Mascotmon,Mascotmon)
-         Damage dealt: 0.0
-,public BattleScenario1(Mascotmon,Mascotmon)
-4Easter egg 1 (you found one error): https://www.you
-         Damage dealt: 30.0
-,public BattleScenario1(Mascotmon,Mascotmon)
-    BvsRSunnyGround
-         Damage dealt: 15.0
-Environment Test Case 1
-,public BattleScenario1(Mascotmon,Mascotmon)
-         Damage dealt: -10.0
-	Environment Test Case 2
-	,public BattleScenario1(Mascotmon,Mascotmon)
-	         Damage dealt: -10.0
-
-Environment Test Case 3
-
-,public BattleScenario1(Mascotmon,Mascotmon)
-
-         Damage dealt: 0.0
-Environment Test Case 3
-,public BattleScenario1(Mascotmon,Mascotmon)
-         Damage dealt: 0.0
-,public BattleScenario1(Mascotmon,Mascotmon)
-    RvsBSunnyGround
-         Damage dealt: 72.0
-Type Test Case 1
-,public BattleScenario2(Mascotmon,Mascotmon)
-         Damage dealt: 0.0
-,public BattleScenario2(Mascotmon,Mascotmon)
-.Easter egg 3 (you found one error): ch?v=dQw4
-1Easter egg 2 (you found one error): tube.com/wat
-         Damage dealt: 0.0
-Type Test Case 2
-,public BattleScenario2(Mascotmon,Mascotmon)
-1Easter egg 2 (you found one error): tube.com/wat
-         Damage dealt: 0.0
-Type Test Case 3
-,public BattleScenario2(Mascotmon,Mascotmon)
-         Damage dealt: 0.0
-,public BattleScenario2(Mascotmon,Mascotmon)
-pEaster egg 6 (you found one error): Ein Computer wird das tun, was du programmierst - nicht das, was du willst.
-         Damage dealt: 30.0
-,public BattleScenario2(Mascotmon,Mascotmon)
-    BvsRSunnyGround
-         Damage dealt: 15.0
-Environment Test Case 1
-,public BattleScenario2(Mascotmon,Mascotmon)
-1Easter egg 2 (you found one error): tube.com/wat
-         Damage dealt: 0.0
-Environment Test Case 2
-,public BattleScenario2(Mascotmon,Mascotmon)
-1Easter egg 2 (you found one error): tube.com/wat
-         Damage dealt: 0.0
-Environment Test Case 3
-,public BattleScenario2(Mascotmon,Mascotmon)
-1Easter egg 2 (you found one error): tube.com/wat
-         Damage dealt: 0.0
-Environment Test Case 3
-,public BattleScenario2(Mascotmon,Mascotmon)
-1Easter egg 2 (you found one error): tube.com/wat
-         Damage dealt: 0.0
-,public BattleScenario2(Mascotmon,Mascotmon)
-    RvsBSunnyGround
-         Damage dealt: 56.0
-Type Test Case 1
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 1.0
-Type Test Case 2
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 10.0
-Type Test Case 3
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 1.0
-,public BattleScenario3(Mascotmon,Mascotmon)
-    BvsRSunnyGround
-         Damage dealt: 50.0
-Environment Test Case 1
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 1.0
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 23.0
-Environment Test Case 2
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 1.0
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 1.0
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 23.0
-Environment Test Case 3
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 1.0
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 8.0
-Environment Test Case 3
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 1.0
-,public BattleScenario3(Mascotmon,Mascotmon)
-         Damage dealt: 10.0
-,public BattleScenario3(Mascotmon,Mascotmon)
-    RvsBSunnyGround
-         Damage dealt: 56.0
-Type Test Case 1
-,public BattleScenario4(Mascotmon,Mascotmon)
-WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-         Damage dealt: 1.0
- Type Test Case 2
- ,public BattleScenario4(Mascotmon,Mascotmon)
- WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-          Damage dealt: 1.0
- ,public BattleScenario4(Mascotmon,Mascotmon)
- WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-          Damage dealt: 1.0
- ,public BattleScenario4(Mascotmon,Mascotmon)
- WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-          Damage dealt: 1.0
-!Type Test Case 3
-!,public BattleScenario4(Mascotmon,Mascotmon)
-!WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-!         Damage dealt: 1.0
-",public BattleScenario4(Mascotmon,Mascotmon)
-"    BvsRSunnyGround
-"         Damage dealt: 15.0
-#Environment Test Case 1
-#,public BattleScenario4(Mascotmon,Mascotmon)
-#WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-#         Damage dealt: 1.0
-#,public BattleScenario4(Mascotmon,Mascotmon)
-#         Damage dealt: 64.0
-$Environment Test Case 2
-$,public BattleScenario4(Mascotmon,Mascotmon)
-$WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-$         Damage dealt: 1.0
-$,public BattleScenario4(Mascotmon,Mascotmon)
-$         Damage dealt: 16.0
-%Environment Test Case 3
-%,public BattleScenario4(Mascotmon,Mascotmon)
-%WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-%         Damage dealt: 1.0
-%,public BattleScenario4(Mascotmon,Mascotmon)
-%WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-%         Damage dealt: 1.0
-%,public BattleScenario4(Mascotmon,Mascotmon)
-%WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-%         Damage dealt: 1.0
-&Environment Test Case 3
-&,public BattleScenario4(Mascotmon,Mascotmon)
-&WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-&         Damage dealt: 1.0
-&,public BattleScenario4(Mascotmon,Mascotmon)
-&WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-&         Damage dealt: 1.0
-&,public BattleScenario4(Mascotmon,Mascotmon)
-&WEaster egg 5 (you found one error): Only one more to go, eat a cookie for strenght :-)
-&         Damage dealt: 1.0
-',public BattleScenario4(Mascotmon,Mascotmon)
-'    RvsBSunnyGround
-',Easter egg 4 (you found one error): w9WgXcQ
-'         Damage dealt: 37.0
-(Type Test Case 1
-(,public BattleScenario5(Mascotmon,Mascotmon)
-(         Damage dealt: 1.0
-)Type Test Case 2
-),public BattleScenario5(Mascotmon,Mascotmon)
-)         Damage dealt: 1.0
-),public BattleScenario5(Mascotmon,Mascotmon)
-)         Damage dealt: 1.0
-),public BattleScenario5(Mascotmon,Mascotmon)
-)         Damage dealt: 8.0
-),public BattleScenario5(Mascotmon,Mascotmon)
-)         Damage dealt: 1.0
-*Type Test Case 3
-*,public BattleScenario5(Mascotmon,Mascotmon)
-*         Damage dealt: 1.0
-+,public BattleScenario5(Mascotmon,Mascotmon)
-+    BvsRSunnyGround
-+         Damage dealt: 15.0
-,Environment Test Case 1
-,,public BattleScenario5(Mascotmon,Mascotmon)
-,         Damage dealt: 1.0
-,,public BattleScenario5(Mascotmon,Mascotmon)
-,         Damage dealt: 19.0
-,,public BattleScenario5(Mascotmon,Mascotmon)
-,         Damage dealt: 28.0
-,,public BattleScenario5(Mascotmon,Mascotmon)
-,         Damage dealt: 1.0
--Environment Test Case 2
--,public BattleScenario5(Mascotmon,Mascotmon)
--         Damage dealt: 1.0
--,public BattleScenario5(Mascotmon,Mascotmon)
--         Damage dealt: 1.0
--,public BattleScenario5(Mascotmon,Mascotmon)
--         Damage dealt: 71.0
--,public BattleScenario5(Mascotmon,Mascotmon)
--         Damage dealt: 1.0
-.Environment Test Case 3
-.,public BattleScenario5(Mascotmon,Mascotmon)
-.         Damage dealt: 1.0
-.,public BattleScenario5(Mascotmon,Mascotmon)
-.         Damage dealt: 1.0
-.,public BattleScenario5(Mascotmon,Mascotmon)
-.         Damage dealt: 17.0
-.,public BattleScenario5(Mascotmon,Mascotmon)
-.         Damage dealt: 58.0
-/Environment Test Case 3
-/,public BattleScenario5(Mascotmon,Mascotmon)
-/         Damage dealt: 1.0
-/,public BattleScenario5(Mascotmon,Mascotmon)
-/         Damage dealt: 1.0
-/,public BattleScenario5(Mascotmon,Mascotmon)
-/         Damage dealt: 8.0
-/,public BattleScenario5(Mascotmon,Mascotmon)
-/         Damage dealt: 58.0
-0,public BattleScenario5(Mascotmon,Mascotmon)
-0    RvsBSunnyGround
-0         Damage dealt: 56.0
