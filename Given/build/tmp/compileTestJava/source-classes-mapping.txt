@@ -1,4 +1,0 @@
-GivenWhiteBox.java
- GivenWhiteBox
-calculateDamageTest.java
- calculateDamageTest
