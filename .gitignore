@@ -29,3 +29,5 @@ hs_err_pid*
 # OS directory artifacts
 *.DS_Store
 /bin/
+.gradle/
+build/
