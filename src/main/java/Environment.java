@@ -34,8 +34,9 @@ public class Environment {
                 break;
         }
     }
-
-    public String GetBuffedType() {
+    
+    //SER316 TASK 2 SPOT-BUGS FIX
+    public String getBuffedType() {
         return buffedType;
     }
 

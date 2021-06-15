@@ -9,7 +9,7 @@ public class Mascotmon {
     public Stats stats;
     public double weatherBonus = 1.0;
     public double typeBonus = 1.0;
-    public int buf_counter = 0;
+    public int bufCounter = 0;
 
     public Mascotmon() {
         int rand = ThreadLocalRandom.current().nextInt(0, 4);
@@ -40,7 +40,7 @@ public class Mascotmon {
     }
 
     private void getType() {
-        type t = new type(name);
+        Type t = new Type(name);
         this.type = t.type;
     }
 
@@ -63,91 +63,92 @@ public class Mascotmon {
      * is supposed to use and is correct.
      */
     public Attack attack() {
-        double attack_Damage = 0;
+        double attackDamage;
+        attackDamage = 0;
         int attackNumber = 0;
 
         while (true) {
             attackNumber = ThreadLocalRandom.current().nextInt(0, 4);
-            if (attackNumber == 0 && buf_counter <= 2) {
-                buf_counter++;
+            if (attackNumber == 0 && bufCounter <= 2) {
+                bufCounter++;
                 break;
             } else if (attackNumber != 0) {
                 break;
             }
         }
 
-        String _desc = "";
+        String desc = "";
         Attack attack = null;
 
         switch (name) {
             case ALBERT:
                 if (attackNumber == 0) {
-                    _desc = " uses Iron Scales, increasing defense stat by 10%";
+                    desc = " uses Iron Scales, increasing defense stat by 10%";
                     stats.defense *= 1.10;
                     attack = new Attack(0, "None");
                 } else if (attackNumber == 1) {
-                    _desc = " uses Death Roll";
+                    desc = " uses Death Roll";
                     attack = new Attack(stats.attack, "Ground");
                 } else if (attackNumber == 2) {
-                    _desc = " uses Chomp";
+                    desc = " uses Chomp";
                     attack = new Attack(stats.attack, "Normal");
                 } else {
-                    _desc = " uses Aqua Cannon";
+                    desc = " uses Aqua Cannon";
                     attack = new Attack(stats.attack, "Water");
                 }
                 break;
             case RALPHIE:
                 if (attackNumber == 0) {
-                    _desc = " uses Iron Hide, increasing defense stat by 10%";
+                    desc = " uses Iron Hide, increasing defense stat by 10%";
                     stats.defense *= 1.10;
                     attack = new Attack(0, "None");
                 } else if (attackNumber == 1) {
-                    _desc = " uses Ground Stomp";
+                    desc = " uses Ground Stomp";
                     attack = new Attack(stats.attack, "Ground");
                 } else if (attackNumber == 2) {
-                    _desc = " uses Headbutt";
+                    desc = " uses Headbutt";
                     attack = new Attack(stats.attack, "Normal");
                 } else {
-                    _desc = " uses Flaming Horn";
+                    desc = " uses Flaming Horn";
                     attack = new Attack(stats.attack, "Fire");
                 }
                 break;
             case SPARKY:
                 if (attackNumber == 0) {
-                    _desc = " uses Heat Up, increasing attack stat by 10%";
+                    desc = " uses Heat Up, increasing attack stat by 10%";
                     stats.attack *= 1.10;
                     attack = new Attack(0, "None");
                 } else if (attackNumber == 1) {
-                    _desc = " uses Inferno";
+                    desc = " uses Inferno";
                     attack = new Attack(stats.attack, "Fire");
                 } else if (attackNumber == 2) {
-                    _desc = " uses Quick Attack";
+                    desc = " uses Quick Attack";
                     attack = new Attack(stats.attack, "Normal");
                     System.out.println("Attack value: " + stats.attack);
                 } else {
-                    _desc = " uses Earthquake";
+                    desc = " uses Earthquake";
                     attack = new Attack(stats.attack, "Ground");
                 }
                 break;
             case BULLY:
                 if (attackNumber == 0) {
-                    _desc = " uses Sleep, increasing health stat by 10%";
+                    desc = " uses Sleep, increasing health stat by 10%";
                     double health = stats.health * 1.10;
                     stats.health = Math.round(health);
                     attack = new Attack(0, "None");
                 } else if (attackNumber == 1) {
-                    _desc = " uses Body Slam";
+                    desc = " uses Body Slam";
                     attack = new Attack(stats.attack, "Normal");
                 } else if (attackNumber == 2) {
-                    _desc = " uses Splash";
+                    desc = " uses Splash";
                     attack = new Attack(stats.attack, "Water");
                 } else {
-                    _desc = " uses Ground Pound";
+                    desc = " uses Ground Pound";
                     attack = new Attack(stats.attack, "Ground");
                 }
         }
 
-        System.out.println(name.toString().toLowerCase() + _desc);
+        System.out.println(name.toString().toLowerCase() + desc);
         return attack;
     }
 

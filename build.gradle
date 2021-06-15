@@ -1,7 +1,7 @@
-// plugins {
-//     id "com.github.spotbugs" version "4.5.1"
-//     id "checkstyle"
-// }
+ plugins {
+     id "com.github.spotbugs" version "4.5.1"
+     id "checkstyle"
+ }
 
 apply plugin: 'application'
 apply plugin: 'jacoco'
@@ -52,18 +52,18 @@ repositories {
 // Configure SpotBugs
 ///////////////////////////////////////////////////////////////////////
 // To generate an HTML report instead of XML
-// spotbugsMain {
-//     reports {
-//         xml.enabled = false
-//         html.enabled = true
-//     }
-// }
-// spotbugs {
-//     toolVersion = '4.0.0-beta4'
-//     ignoreFailures = true
-//     showProgress = true
-//     effort = 'max'
-// }
+ spotbugsMain {
+     reports {
+         xml.enabled = false
+         html.enabled = true
+     }
+ }
+ spotbugs {
+     toolVersion = '4.0.0-beta4'
+     ignoreFailures = true
+     showProgress = true
+     effort = 'max'
+ }
 
 test {
      exclude '**/GivenBlackBox.class'

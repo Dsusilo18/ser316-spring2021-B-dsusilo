@@ -3,14 +3,14 @@ public class BattleScenario {
 
     Mascotmon mon1;
     Mascotmon mon2;
-    Stats mon1Stats;
-    Stats mon2Stats;
+//    Stats mon1Stats;
+//    Stats mon2Stats; SER316 TASK 2 SPOT-BUGS FIX
     Environment battleWeather;
     Mascotmon winner;
 
-    public BattleScenario(Mascotmon pMon1, Mascotmon pMon2) {
-        setMon1(pMon1);
-        setMon2(pMon2);
+    public BattleScenario(Mascotmon pmon1, Mascotmon pmon2) {
+        setMon1(pmon1);
+        setMon2(pmon2);
     }
 
     /**
@@ -22,8 +22,8 @@ public class BattleScenario {
      *
      * @param pWeather is the weather enum to use from Environment class
      */
-    public void setEnvironment(Environment.Weather pWeather) {
-        battleWeather = new Environment(pWeather);
+    public void setEnvironment(Environment.Weather pweather) {
+        battleWeather = new Environment(pweather);
     }
 
     /**
@@ -32,9 +32,9 @@ public class BattleScenario {
      */
     public void initiateBattle() {
 
-        // initiate stats for mon1 and mon2
-        mon1Stats = new Stats(mon1.name);
-        mon2Stats = new Stats(mon2.name);
+//        // initiate stats for mon1 and mon2
+//        mon1Stats = new Stats(mon1.name);
+//        mon2Stats = new Stats(mon2.name); SER316 TASK 2 SPOT-BUGS FIX
 
         System.out.println("\nWelcome everyone to the Mascotmon training arena!");
         System.out.println("It is a " + battleWeather.WEATHER.toString().toLowerCase()
@@ -101,7 +101,8 @@ public class BattleScenario {
             //Battle terminating condition:
             if (mon1.stats.health <= 0.0) {
                 System.out.println(mon1.name + " has fainted in round " + round);
-                if (round == 2 && mon1.equals(equals("Neutral"))) {
+                // SER316 TASK 2 SPOT-BUGS FIX
+                if (round == 2 && mon1.type.equals("Neutral")) {
                     return mon2;
                 }
             }
@@ -118,12 +119,12 @@ public class BattleScenario {
         }
     }
 
-    public void setMon1(Mascotmon pMon) {
-        mon1 = pMon;
+    public void setMon1(Mascotmon pmon) {
+        mon1 = pmon;
     }
 
-    public void setMon2(Mascotmon pMon) {
-        mon2 = pMon;
+    public void setMon2(Mascotmon pmon) {
+        mon2 = pmon;
     }
 
     /**
@@ -132,21 +133,21 @@ public class BattleScenario {
      * damage, the dealt damage is then calculated through totalDamage =
      * (pAttack.damage * pAttacker.attack * pAttacker.weatherBonus *
      * pAttacker.typeBonus) - (pDefender.stats.defense * pDefender.weatherBonus
-     * * pDefender.typeBonus)
+     * pDefender.typeBonus).
      *
-     * Note: totalDamage is rounded to the nearest integer before it is returned
+     * <p>Note: totalDamage is rounded to the nearest integer before it is returned
      * If the initial pAttack.damage is 0, then the damage dealt is 0. If the
      * totalDamage calculated is negative, the totalDamage dealt should be 1.
      * Any positive value is the total damage dealt.
      *
-     * Weather bonus: see the Environment which you can assume is correct. You
+     * <p>Weather bonus: see the Environment which you can assume is correct. You
      * do need to check if the weather bonus is applied correctly, since maybe
      * the method does not use the environment correctly.On attack or defense,
      * the monster have a buff, debuff or nothing based on the weather. EG. fire
      * monsters have a stat advantage of +25% in sunny weather while they have a
      * stat disadvantage of -25% in the rain.
      *
-     * If the attack chosen, matches the monsters type, the attacker will get an
+     * <p>If the attack chosen, matches the monsters type, the attacker will get an
      * extra 20% on its attack. Type bonus: Certain monsters have an type bonus
      * against others (bonuses: Fire against Water: Water gains 25% while Fire
      * looses 25% Fire against Ground: Fire gains 25% while Ground looses 25%
@@ -156,63 +157,65 @@ public class BattleScenario {
      *
      *
      *
-     * @param pAttack is the attack value given to the method where that attack
+     * @param pattack is the attack value given to the method where that attack
      * value is based on the monsters damage value
-     * @param pAttacker the attacking monster
-     * @param pDefender the defending monster (the defending monster will never
+     * @param pattacker the attacking monster
+     * @param pdefender the defending monster (the defending monster will never
      * get damage) to calculate damage output.
      * @return total damage output
      */
-    public double calculateDamage(Attack pAttack, Mascotmon pAttacker, Mascotmon pDefender) {
+    public double calculateDamage(Attack pattack, Mascotmon pattacker, Mascotmon pdefender) {
 //        return Math.round(pAttack.damage * 0.2);
-        double AttackBonus = 1;
+        double attackBonus = 1;
         double totalDamage = 0;
-        if (pAttacker.type.equals(battleWeather.buffedType)) {
-            pAttacker.weatherBonus = battleWeather.buffModifier;
-        } else if (pAttacker.type.equals(battleWeather.DebuffedType)) {
-            pAttacker.weatherBonus = battleWeather.debuffModifier;
+        if (pattacker.type.equals(battleWeather.buffedType)) {
+            pattacker.weatherBonus = battleWeather.buffModifier;
+        } else if (pattacker.type.equals(battleWeather.DebuffedType)) {
+            pattacker.weatherBonus = battleWeather.debuffModifier;
         }
-        if (pDefender.type.equals(battleWeather.buffedType)) {
-            pDefender.weatherBonus = battleWeather.buffModifier;
-        } else if (pDefender.type.equals(battleWeather.DebuffedType)) {
-            pDefender.weatherBonus = battleWeather.debuffModifier;
+        if (pdefender.type.equals(battleWeather.buffedType)) {
+            pdefender.weatherBonus = battleWeather.buffModifier;
+        } else if (pdefender.type.equals(battleWeather.DebuffedType)) {
+            pdefender.weatherBonus = battleWeather.debuffModifier;
         }
-        if (pAttack.type.equals(pAttacker.type)) {
-            AttackBonus = 1.20;
+        if (pattack.type.equals(pattacker.type)) {
+            attackBonus = 1.20;
         }
 
-        switch (pAttacker.type) {
+        switch (pattacker.type) {
             case "Fire":
-                if (pDefender.type.equals("Ground")) {
-                    pAttacker.typeBonus = 1.25;
-                    pDefender.typeBonus = 0.75;
-                } else if (pDefender.type.equals("Water")) {
-                    pAttacker.typeBonus = 0.75;
-                    pDefender.typeBonus = 1.25;
+                if (pdefender.type.equals("Ground")) {
+                    pattacker.typeBonus = 1.25;
+                    pdefender.typeBonus = 0.75;
+                } else if (pdefender.type.equals("Water")) {
+                    pattacker.typeBonus = 0.75;
+                    pdefender.typeBonus = 1.25;
                 }
                 break;
             case "Water":
-                if (pDefender.type.equals("Fire")) {
-                    pAttacker.typeBonus = 1.25;
-                    pDefender.typeBonus = 0.75;
-                } else if (pDefender.type.equals("Ground")) {
-                    pAttacker.typeBonus = 0.75;
-                    pDefender.typeBonus = 1.25;
+                if (pdefender.type.equals("Fire")) {
+                    pattacker.typeBonus = 1.25;
+                    pdefender.typeBonus = 0.75;
+                } else if (pdefender.type.equals("Ground")) {
+                    pattacker.typeBonus = 0.75;
+                    pdefender.typeBonus = 1.25;
                 }
                 break;
             case "Ground":
-                if (pDefender.type.equals("Water")) {
-                    pAttacker.typeBonus = 1.25;
-                    pDefender.typeBonus = 0.75;
-                } else if (pDefender.type.equals("Fire")) {
-                    pAttacker.typeBonus = 0.75;
-                    pDefender.typeBonus = 1.25;
+                if (pdefender.type.equals("Water")) {
+                    pattacker.typeBonus = 1.25;
+                    pdefender.typeBonus = 0.75;
+                } else if (pdefender.type.equals("Fire")) {
+                    pattacker.typeBonus = 0.75;
+                    pdefender.typeBonus = 1.25;
                 }
                 break;
+            default:
+                break;
         }
-        totalDamage = (pAttack.damage * AttackBonus * pAttacker.weatherBonus
-                * pAttacker.typeBonus) - (pDefender.stats.defense
-                * pDefender.weatherBonus * pDefender.typeBonus);
+        totalDamage = (pattack.damage * attackBonus * pattacker.weatherBonus
+                * pattacker.typeBonus) - (pdefender.stats.defense
+                * pdefender.weatherBonus * pdefender.typeBonus);
 
         if (totalDamage < 0) {
             return 1;
