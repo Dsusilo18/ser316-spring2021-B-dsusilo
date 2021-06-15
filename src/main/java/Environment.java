@@ -1,18 +1,18 @@
 
 public class Environment {
 
-    Weather WEATHER;
-    String buffedType;
-    String DebuffedType;
-    double buffModifier;
-    double debuffModifier;
+    private Weather WeatherType;
+    private String buffedType;
+    private String DebuffedType;
+    private double buffModifier;
+    private double debuffModifier;
 
     public Environment() {
         this(Weather.neutral);
     }
 
     public Environment(Weather weather) {
-        this.WEATHER = weather;
+        this.WeatherType = weather;
         this.buffModifier = 1.25;
         this.debuffModifier = 0.75;
         switch (weather) {
@@ -34,7 +34,7 @@ public class Environment {
                 break;
         }
     }
-    
+
     //SER316 TASK 2 SPOT-BUGS FIX
     public String getBuffedType() {
         return buffedType;
@@ -46,5 +46,17 @@ public class Environment {
 
     public enum Weather {
         sunny, rainy, drought, neutral
+    }
+
+    public double getDebuffMod() {
+        return debuffModifier;
+    }
+
+    public double getBuffMod() {
+        return buffModifier;
+    }
+
+    public Weather getWeather() {
+        return WeatherType;
     }
 }

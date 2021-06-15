@@ -80,7 +80,7 @@ public class GivenWhiteBox {
         Mascotmon defender1 = new Mascotmon(Mascotmon.Name.RALPHIE);
         BattleScenario scenario1 = new BattleScenario(attacker1, defender1);
         scenario1.setEnvironment(Environment.Weather.neutral);
-        assertEquals(Environment.Weather.neutral, scenario1.battleWeather.WEATHER);
+        assertEquals(Environment.Weather.neutral, scenario1.getEnv().getWeather());
     }
 
     /**
@@ -120,6 +120,6 @@ public class GivenWhiteBox {
         BattleScenario scenario1 = new BattleScenario(attacker1, defender1);
         scenario1.setEnvironment(Environment.Weather.neutral);
         scenario1.initiateBattle();
-        assertNotNull(scenario1.winner);
+        assertNotNull(scenario1.getWin());
     }
 }

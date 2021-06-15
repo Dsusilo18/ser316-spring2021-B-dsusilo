@@ -1,7 +1,8 @@
 //SER316 TASK 2 SPOT-BUGS FIX
+
 public class Type {
 
-    String type;
+    private String type;
 
     public Type() {
         type = "Normal";
@@ -17,5 +18,9 @@ public class Type {
         } else {
             type = "Normal";
         }
+    }
+
+    public String getType() {
+        return type;
     }
 }
