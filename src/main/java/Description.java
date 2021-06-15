@@ -25,4 +25,8 @@ public class Description {
     public String getDesc() {
         return description;
     }
+    
+    public String getDesc(){
+        return description;
+    }
 }
