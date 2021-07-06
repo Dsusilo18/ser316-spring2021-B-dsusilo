@@ -63,6 +63,7 @@ public class BattleScenario {
      */
     public Mascotmon fight() {
         int round = 1;
+        int swtch = 0;
         double damage1;
         double damage2;
 
@@ -72,46 +73,35 @@ public class BattleScenario {
         mon2.stats.setHealth(0.0);
 
         while (round < 4) {
-            //Mon 1's turn:
-            System.out.println("\n" + mon1.name + " launches an attack against "
-                    + mon2.name + "!");
-            attack1 = mon1.attack();
+            while (swtch < 2) {
+                //Mon 1's turn:
+                System.out.println("\n" + mon1.name + " launches an attack against "
+                        + mon2.name + "!");
+                attack1 = mon1.attack();
 
-            //Calculate damage:
-            damage1 = calculateDamage(attack1, mon1, mon2);
-            System.out.println(damage1 + " damage dealt");
+                //Calculate damage:
+                damage1 = calculateDamage(attack1, mon1, mon2);
+                System.out.println(damage1 + " damage dealt");
 
-            //Adjust mon2's health:
-            mon2.stats.setHealth(mon2.stats.getHealth() - damage1);
-            System.out.println(mon2.name + " has " + mon2.stats.getHealth()
-                    + " health left");
-            //Battle terminating condition:
-            if (mon2.stats.getHealth() <= 0.0) {
-                System.out.println(mon2.name + " has fainted in round " + round);
-                if (round == 2 && mon1.type.equals("Water")) {
-                    return mon1;
+                //Adjust mon2's health:
+                mon2.stats.setHealth(mon2.stats.getHealth() - damage1);
+                System.out.println(mon2.name + " has " + mon2.stats.getHealth()
+                        + " health left");
+                //Battle terminating condition:
+                if (mon2.stats.getHealth() <= 0.0) {
+                    System.out.println(mon2.name + " has fainted in round " + round);
+                    if (round == 2 && mon1.type.equals("Water")) {
+                        return mon1;
+                    } else if (round == 2 && mon2.type.equals("Neutral")) {
+                        return mon1;
+                    }
                 }
-            }
 
-            //Mon 2's turn:
-            System.out.println("\n" + mon2.name + " launches an attack against "
-                    + "" + mon1.name + "!");
-            attack2 = mon2.attack();
+                Mascotmon temp = mon1;
+                mon1 = mon2;
+                mon2 = temp;
 
-            //Calculate damage:
-            damage2 = calculateDamage(attack2, mon2, mon1);
-            System.out.println(damage2 + " damage dealt");
-
-            //Adjust mon1's health:
-            mon1.stats.setHealth(mon1.stats.getHealth() - damage2);
-            System.out.println(mon1.name + " has " + mon1.stats.getHealth() + " health left");
-            //Battle terminating condition:
-            if (mon1.stats.getHealth() <= 0.0) {
-                System.out.println(mon1.name + " has fainted in round " + round);
-                // SER316 TASK 2 SPOT-BUGS FIX
-                if (round == 2 && mon1.type.equals("Neutral")) {
-                    return mon2;
-                }
+                swtch++;
             }
             round++;
             if (round == 3) {
@@ -178,16 +168,20 @@ public class BattleScenario {
 //        return Math.round(pAttack.damage * 0.2);
         double attackBonus = 1;
         double totalDamage = 0;
-        if (pattacker.type.equals(battleWeather.getBuffedType())) {
-            pattacker.weatherBonus = battleWeather.getBuffMod();
-        } else if (pattacker.type.equals(battleWeather.getDebuffedType())) {
-            pattacker.weatherBonus = battleWeather.getDebuffMod();
+        int swtch = 0;
+        while (swtch < 2) {
+            if (pattacker.type.equals(battleWeather.getBuffedType())) {
+                pattacker.weatherBonus = battleWeather.getBuffMod();
+            } else if (pattacker.type.equals(battleWeather.getDebuffedType())) {
+                pattacker.weatherBonus = battleWeather.getDebuffMod();
+            }
+            Mascotmon temp = pattacker;
+            pattacker = pdefender;
+            pdefender = temp;
+
+            swtch++;
         }
-        if (pdefender.type.equals(battleWeather.getBuffedType())) {
-            pdefender.weatherBonus = battleWeather.getBuffMod();
-        } else if (pdefender.type.equals(battleWeather.getDebuffedType())) {
-            pdefender.weatherBonus = battleWeather.getDebuffMod();
-        }
+
         if (pattack.getType().equals(pattacker.type)) {
             attackBonus = 1.20;
         }
@@ -195,29 +189,23 @@ public class BattleScenario {
         switch (pattacker.type) {
             case "Fire":
                 if (pdefender.type.equals("Ground")) {
-                    pattacker.typeBonus = 1.25;
-                    pdefender.typeBonus = 0.75;
+                    buff(pattacker, pdefender, true);
                 } else if (pdefender.type.equals("Water")) {
-                    pattacker.typeBonus = 0.75;
-                    pdefender.typeBonus = 1.25;
+                    buff(pattacker, pdefender, false);
                 }
                 break;
             case "Water":
                 if (pdefender.type.equals("Fire")) {
-                    pattacker.typeBonus = 1.25;
-                    pdefender.typeBonus = 0.75;
+                    buff(pattacker, pdefender, true);
                 } else if (pdefender.type.equals("Ground")) {
-                    pattacker.typeBonus = 0.75;
-                    pdefender.typeBonus = 1.25;
+                    buff(pattacker, pdefender, false);
                 }
                 break;
             case "Ground":
                 if (pdefender.type.equals("Water")) {
-                    pattacker.typeBonus = 1.25;
-                    pdefender.typeBonus = 0.75;
+                    buff(pattacker, pdefender, true);
                 } else if (pdefender.type.equals("Fire")) {
-                    pattacker.typeBonus = 0.75;
-                    pdefender.typeBonus = 1.25;
+                    buff(pattacker, pdefender, false);
                 }
                 break;
             default:
@@ -233,6 +221,16 @@ public class BattleScenario {
             return 0;
         } else {
             return Math.round(totalDamage);
+        }
+    }
+
+    public void buff(Mascotmon pattacker, Mascotmon pdefender, Boolean attBuffed) {
+        if (attBuffed) {
+            pattacker.typeBonus = 1.25;
+            pdefender.typeBonus = 0.75;
+        } else {
+            pattacker.typeBonus = 0.75;
+            pdefender.typeBonus = 1.25;
         }
     }
 

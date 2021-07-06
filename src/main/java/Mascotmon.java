@@ -1,56 +1,77 @@
 
+import java.util.LinkedList;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Mascotmon {
 
     String description;
     String type;
-    Name name;
+    String name;
+    private Name title;
     Stats stats;
     double weatherBonus = 1.0;
     double typeBonus = 1.0;
     int bufCounter = 0;
+    private LinkedList<Attack> attacks = new LinkedList<>();
+    private int attMax;
 
     public Mascotmon() {
         int rand = ThreadLocalRandom.current().nextInt(0, 4);
         switch (rand) {
             case 0:
-                name = Name.ALBERT;
+                title = Name.ALBERT;
                 break;
             case 1:
-                name = Name.RALPHIE;
+                title = Name.RALPHIE;
                 break;
             case 2:
-                name = Name.SPARKY;
+                title = Name.SPARKY;
                 break;
             default:
-                name = Name.BULLY;
+                title = Name.BULLY;
                 break;
         }
+        name = title.toString();
         getType();
         getStats();
         getDescription();
+        attMax = 4;
     }
 
     public Mascotmon(Name name) {
-        this.name = name;
+        title = name;
+        this.name = name.toString();
         getType();
         getStats();
         getDescription();
+        attMax = 4;
+    }
+
+    public Mascotmon(CreateMascotmon newMon) {
+        name = newMon.getName();
+        type = newMon.getType();
+        stats = newMon.getStats();
+        description = newMon.getDescription();
+        attacks = newMon.getAtt();
+        attMax = 0;
+    }
+
+    public void addAttack(Attack attack) {
+        attacks.add(attack);
     }
 
     private void getType() {
-        Type t = new Type(name);
+        Type t = new Type(title);
         this.type = t.getType();
     }
 
     private void getStats() {
-        stats = new Stats(name);
+        stats = new Stats(title);
 
     }
 
     private void getDescription() {
-        Description desc = new Description(name);
+        Description desc = new Description(title);
         this.description = desc.getDesc();
     }
 
@@ -66,9 +87,12 @@ public class Mascotmon {
         double attackDamage;
         attackDamage = 0;
         int attackNumber = 0;
+        if (!attacks.isEmpty()) {
+            attMax += attacks.size();
+        }
 
         while (true) {
-            attackNumber = ThreadLocalRandom.current().nextInt(0, 4);
+            attackNumber = ThreadLocalRandom.current().nextInt(0, attMax);
             if (attackNumber == 0 && bufCounter <= 2) {
                 bufCounter++;
                 break;
@@ -80,76 +104,119 @@ public class Mascotmon {
         String desc = "";
         Attack attack = null;
 
-        switch (name) {
+        switch (title) {
             case ALBERT:
-                if (attackNumber == 0) {
-                    desc = " uses Iron Scales, increasing defense stat by 10%";
-                    stats.setDefense(stats.getDefense()* 1.10);
-                    attack = new Attack(0, "None");
-                } else if (attackNumber == 1) {
-                    desc = " uses Death Roll";
-                    attack = new Attack(stats.getAttack(), "Ground");
-                } else if (attackNumber == 2) {
-                    desc = " uses Chomp";
-                    attack = new Attack(stats.getAttack(), "Normal");
-                } else {
-                    desc = " uses Aqua Cannon";
-                    attack = new Attack(stats.getAttack(), "Water");
-                }
+        switch (attackNumber) {
+            case 0:
+                desc = " uses Iron Scales, increasing defense stat by 10%";
+                stats.setDefense(stats.getDefense() * 1.10);
+                attack = new Attack(0, "None");
+                break;
+            case 1:
+                desc = " uses Death Roll";
+                attack = new Attack(stats.getAttack(), "Ground");
+                break;
+            case 2:
+                desc = " uses Chomp";
+                attack = new Attack(stats.getAttack(), "Normal");
+                break;
+            case 3:
+                desc = " uses Aqua Cannon";
+                attack = new Attack(stats.getAttack(), "Water");
+                break;
+            default:
+                desc = attacks.get(attackNumber - 4).getDesc();
+                attack = new Attack(stats.getAttack(), attacks.get(attackNumber - 4).getType());
+                break;
+        }
                 break;
             case RALPHIE:
-                if (attackNumber == 0) {
-                    desc = " uses Iron Hide, increasing defense stat by 10%";
-                    stats.setDefense(stats.getDefense()* 1.10);
-                    attack = new Attack(0, "None");
-                } else if (attackNumber == 1) {
-                    desc = " uses Ground Stomp";
-                    attack = new Attack(stats.getAttack(), "Ground");
-                } else if (attackNumber == 2) {
-                    desc = " uses Headbutt";
-                    attack = new Attack(stats.getAttack(), "Normal");
-                } else {
-                    desc = " uses Flaming Horn";
-                    attack = new Attack(stats.getAttack(), "Fire");
-                }
+        switch (attackNumber) {
+            case 0:
+                desc = " uses Iron Hide, increasing defense stat by 10%";
+                stats.setDefense(stats.getDefense() * 1.10);
+                attack = new Attack(0, "None");
+                break;
+            case 1:
+                desc = " uses Ground Stomp";
+                attack = new Attack(stats.getAttack(), "Ground");
+                break;
+            case 2:
+                desc = " uses Headbutt";
+                attack = new Attack(stats.getAttack(), "Normal");
+                break;
+            case 3:
+                desc = " uses Flaming Horn";
+                attack = new Attack(stats.getAttack(), "Fire");
+                break;
+            default:
+                desc = attacks.get(attackNumber - 4).getDesc();
+                attack = new Attack(stats.getAttack(), attacks.get(attackNumber - 4).getType());
+                break;
+        }
                 break;
             case SPARKY:
-                if (attackNumber == 0) {
-                    desc = " uses Heat Up, increasing attack stat by 10%";
-                    stats.setAttack(stats.getDefense()* 1.10);
-                    attack = new Attack(0, "None");
-                } else if (attackNumber == 1) {
-                    desc = " uses Inferno";
-                    attack = new Attack(stats.getAttack(), "Fire");
-                } else if (attackNumber == 2) {
-                    desc = " uses Quick Attack";
-                    attack = new Attack(stats.getAttack(), "Normal");
-                    System.out.println("Attack value: " + stats.getAttack());
-                } else {
-                    desc = " uses Earthquake";
-                    attack = new Attack(stats.getAttack(), "Ground");
-                }
+        switch (attackNumber) {
+            case 0:
+                desc = " uses Heat Up, increasing attack stat by 10%";
+                stats.setAttack(stats.getDefense() * 1.10);
+                attack = new Attack(0, "None");
+                break;
+            case 1:
+                desc = " uses Inferno";
+                attack = new Attack(stats.getAttack(), "Fire");
+                break;
+            case 2:
+                desc = " uses Quick Attack";
+                attack = new Attack(stats.getAttack(), "Normal");
+                System.out.println("Attack value: " + stats.getAttack());
+                break;
+            case 3:
+                desc = " uses Earthquake";
+                attack = new Attack(stats.getAttack(), "Ground");
+                break;
+            default:
+                desc = attacks.get(attackNumber - 4).getDesc();
+                attack = new Attack(stats.getAttack(), attacks.get(attackNumber - 4).getType());
+                break;
+        }
                 break;
             case BULLY:
-                if (attackNumber == 0) {
-                    desc = " uses Sleep, increasing health stat by 10%";
-                    double health = stats.getHealth() * 1.10;
-                    stats.setHealth(Math.round(health));
-                    attack = new Attack(0, "None");
-                } else if (attackNumber == 1) {
-                    desc = " uses Body Slam";
-                    attack = new Attack(stats.getAttack(), "Normal");
-                } else if (attackNumber == 2) {
-                    desc = " uses Splash";
-                    attack = new Attack(stats.getAttack(), "Water");
-                } else {
-                    desc = " uses Ground Pound";
-                    attack = new Attack(stats.getAttack(), "Ground");
-                }
+        switch (attackNumber) {
+            case 0:
+                desc = " uses Sleep, increasing health stat by 10%";
+                double health = stats.getHealth() * 1.10;
+                stats.setHealth(Math.round(health));
+                attack = new Attack(0, "None");
+                break;
+            case 1:
+                desc = " uses Body Slam";
+                attack = new Attack(stats.getAttack(), "Normal");
+                break;
+            case 2:
+                desc = " uses Splash";
+                attack = new Attack(stats.getAttack(), "Water");
+                break;
+            case 3:
+                desc = " uses Ground Pound";
+                attack = new Attack(stats.getAttack(), "Ground");
+                break;
+            default:
+                desc = attacks.get(attackNumber - 4).getDesc();
+                attack = new Attack(stats.getAttack(), attacks.get(attackNumber - 4).getType());
+                break;
+        }
+                break;
+            default:
+                desc = attacks.get(attackNumber).getDesc();
+                attack = new Attack(stats.getAttack(), attacks.get(attackNumber).getType());
+                break;
+
         }
 
         System.out.println(name.toString().toLowerCase() + desc);
         return attack;
+
     }
 
     public enum Name {
