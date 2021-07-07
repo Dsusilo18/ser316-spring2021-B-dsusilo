@@ -32,7 +32,11 @@
         <property name="reportLevel" value="10"/>
     </properties>
 </rule>
+<rule ref="category/java/design.xml/ExcessiveParameterList">
+    <properties>
+        <property name="minimum" value="5.0" />
+    </properties>
+</rule>
+<rule ref="category/java/design.xml/SwitchDensity" />
 <rule ref="category/java/bestpractices.xml/LooseCoupling" />
-
-
 </ruleset>
